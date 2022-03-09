@@ -1,0 +1,87 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .error{
+            color: red;
+            font-size: 12px;
+        }
+        .inputError{
+            border-color: red;
+
+        }
+    </style>
+
+</head>
+<body>
+    <form id="miFormulario" method="get">
+        <div>
+            <label for="nombre" >Nombre: *</label>
+            <input type="text" name="nombre" id="nombre" placeholder="Ej: Juan" onchange="onLimpiarEstilos('nombre')"/>
+            <div id="errorNombre" class="error"></div>
+        </div>
+        <div>
+            <label for="apellido">Apellido: *</label>
+            <input type="text" name="apellido" id="apellido" placeholder="Ej: Perez" onchange="onLimpiarEstilos('apellido')"/>
+            <div id="errorApellido" class="error"></div>
+        </div>
+        <button type="submit">Enviar</button>
+    </form>
+
+    <script>
+        // formulario
+        const formulario = document.getElementById("miFormulario");
+        // inputs
+        const nombre = document.getElementById("nombre");
+        const apellido = document.getElementById("apellido");
+
+        //mensajes de error
+        const errorNombre = document.getElementById("errorNombre");
+        const errorApellido = document.getElementById("errorApellido");
+
+        formulario.addEventListener("submit", (evento) => {
+            const valorNombre = nombre.value;
+            const valorApellido = apellido.value;
+        
+        /* operadores logicos
+            AND -> &&
+            OR -> || 
+        */
+
+            if(valorNombre == null || valorNombre == ""){
+                evento.preventDefault(); // detiene el evento submit
+                errorNombre.innerText = "Nombre no puede estar vacio."; //añade texto a elemento
+                nombre.className = "inputError"; //añade clase a elemento
+            }
+            if(valorApellido == null || valorApellido == ""){
+                evento.preventDefault(); 
+                errorApellido.innerText = "Apellido es requerido.";
+                apellido.className = "inputError";
+            }
+
+            if(valorNombre.length > 0 && valorApellido.length > 0){
+                errorApellido.innerText = "";
+                errorNombre.innerText = "";
+                nombre.className = "";
+                apellido.className = "";
+                alert("Formulario enviado")
+            }
+        });
+            // limpia los estilos cuando esta todo ok
+        function onlimpiarestilos(inputName){ //recibe un string
+            if(inputName == "nombre"){
+                errorNombre.innerText = "";
+                nombre.className = "";
+            }
+            if(inputName == "apellido"){
+                errorApellido.innerText = "";
+                apellido.className = "";
+            }
+        }
+    </script>
+</body>
+</html>
