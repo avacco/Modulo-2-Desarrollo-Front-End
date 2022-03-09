@@ -1,0 +1,103 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script
+    src="https://code.jquery.com/jquery-3.6.0.js"
+    integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+    crossorigin="anonymous"></script>
+
+    <style>
+        .errormsg{
+            color: red;
+        }
+        .errorborder{
+            border-color: red;
+        }
+
+        .bg-yellow{
+            background-color: rgb(253, 247, 209);
+        }
+    </style>
+
+</head>
+<body>
+    
+    <button class="boton">Presioname</button>
+    <button class="boton">Y a mi</button>
+    <button class="boton jqhover">A mi tambien</button>
+
+    <button class="botonDos">Yo tengo otra clase</button><br><br><br>
+<form id="form">
+    <label for="textNombre">Nombre: </label>
+    <input type="text" name="" id="textNombre" class="jqhover">
+    <button class="enviar">Enviar</button>
+    <div class="errormsg" id="error"></div>
+</form>
+
+
+
+    <script>
+
+        var nombre = document.getElementById("textNombre");
+
+    /* Añade a la clase "boton" la funcion de alerta al hacerle "click". Todos los elementos clickeables con la clase "boton" obtienen este comportamiento */
+        $(function(){
+            $('.boton').click(function(){
+                alert("Boton presionado. Felicidades.");
+            });
+            
+            $('.botonDos').click(function(){
+                alert("Boton 2 presionado. Hurra.")
+            });
+
+            $('.jqhover').mouseenter(function(){
+                console.log("Entrada")
+            });
+
+            $('.jqhover').mouseleave(function(){
+                console.log("Salida")
+            });
+            
+            $('.enviar').click(function(){
+
+
+                let valorNombre = $('#textNombre').val();
+// equivalente a let valorNombre = document.getElementById("textNombre").value;
+                
+                let borderError = $('#textNombre');
+                let muestraError = $('#error');
+
+                if (valorNombre == ''){
+                borderError.addClass('errorborder'); // añade clase
+                muestraError.text('error'); // cambia texto de elemento
+                // mini simulador de error
+            }
+            
+            });
+
+// .change detecta cuando el elemento encadenado haya cambiado
+            $('#textNombre').change(function(){
+                
+                let muestraError = $('#error');
+                let borderError = $('#textNombre');
+
+
+                borderError.removeClass('errorborder'); // remueve la clase
+                muestraError.text(''); // vuelve a setear el mensaje de error en nada
+
+            });
+// .dblclick detecta un doble click sobre el elemento encadenado
+            $('#textNombre').dblclick(function(){
+                $("body").addClass("bg-yellow");
+            });
+
+        });
+
+
+    </script>
+</body>
+</html>
