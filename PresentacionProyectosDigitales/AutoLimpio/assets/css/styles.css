@@ -1,0 +1,175 @@
+
+@import url('https://fonts.googleapis.com/css2? family= Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200; 1300;1400;1500;1600;1700;1800;1900 & mostrar=intercambiar');
+
+body{
+    margin: 0;    
+    background: rgb(228, 204, 252);
+    font-family:'Poppins',verdana;
+	text-align: justify;
+    
+}
+
+header
+{
+	background:cyan;
+	height: 150px;
+	width: auto;	
+	text-align: center;
+}
+
+nav ul
+{
+list-style: none;
+margin: 20px;
+padding: 0;
+width: auto;
+}
+
+nav ul li
+{
+float: left;
+border-width: 1px;
+border-style: solid;
+border-color: dodgerblue;
+border-radius: 10px;
+padding: 0px 0px;
+margin-left: 2px;
+
+}
+
+nav ul li a
+{
+	margin: 0px 40px;
+	text-decoration: none;
+}
+
+nav ul li a:visited{
+	color: darkgreen;
+	text-decoration: none;
+}
+
+nav ul li a:hover{
+color: rgb(255, 255, 255);
+text-decoration: none;
+}
+
+
+header div.limpiar{
+	clear: both;
+}
+
+.contenedor{
+	min-width: 100%;
+	min-height: 400px;
+	height: 100%;
+}
+
+.contenedor div.izquierda{
+	float: left;
+	width: 48%;
+	margin: 0px 10px;
+}
+
+.contenedor p{
+	text-align: justify;
+}
+
+.contenedor div.derecha{
+	float: right;
+	width: 48%;
+	margin: 0px 10px;
+}
+
+h1 {
+    color: rgb(0, 132, 255);	
+    font-family: 'Raleway', sans-serif;
+	text-align: center;
+	font-weight: 100;
+	padding-top: 20px;
+}
+
+h2
+{
+	color: deepskyblue;
+	font-family: 'Raleway', sans-serif;
+	text-align: center;
+}
+h3
+{
+color: dodgerblue;
+font-family: 'Raleway', sans-serif;
+text-align: center;
+}
+
+p
+{
+	color: indigo;
+}
+
+
+
+
+
+table {
+	width: 90%;
+	border: 1px solid #000;
+	font-family:'Poppins',verdana;
+	background-color: mediumturquoise;
+	
+	
+ }
+ th, td {
+	width: 25%;
+	text-align: left;
+	vertical-align: top;
+	border: 1px solid #000;
+	border-collapse: collapse;
+	padding: 0.3em;
+	caption-side: bottom;
+ }
+ caption {
+	padding: 0.3em;
+	color: #fff;
+	 background: #000;
+ }
+ th {
+	background: #eee;
+ }
+
+ .redondeado {
+	border-radius: 5px;
+	background-color: darkgrey;
+  }
+
+  ul
+{
+	font-family:'Poppins',verdana;
+	color: cornflowerblue;
+}
+
+  .boton
+  {
+	border-radius: 5px;
+	background-color: blueviolet; 
+  }
+
+select
+{
+	border-radius: 5px;
+	background-color: darkgrey;
+}
+
+
+
+.titulo {
+    font-size: 60px;
+}
+
+#footer{
+	height:50px;
+	background:#d35dea;
+	border-top:#FFFFFF 2px solid;
+	margin:0;
+	padding:0;
+	}
+
