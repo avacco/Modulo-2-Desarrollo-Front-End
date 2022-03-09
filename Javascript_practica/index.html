@@ -1,0 +1,168 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practica javascript</title>
+
+    <script>
+        /* Scripts puestos en <head> se ejecutan antes de crear los elementos del body HTML */
+//        alert("Hola mundo")
+        /* No se ejecutaran elementos que no existan al momento de la ejecucion */
+//        alert(document.getElementById("elemento1").value);
+
+        /* Se pueden crear funciones de la siguiente manera */
+        /* Cuando esta funcion es llamada, verifica la cantidad de caracteres en el mensaje que
+            el usuario haya escrito, y si es mayor a 0, toma el valor de lo que esta escrito, y
+            entrega el mensaje y la cantidad de caracteres en una alerta */
+        function pressButton(){
+            let varName = document.getElementById("elemento1").value;
+            if(varName.length > 0){
+                alert("Lo que el usuario ingreso es "+ varName+" y tiene de largo "+varName.length.toString());
+                if(varName.length > 10){
+                    alert("El mensaje tiene mas de 10 caracteres");
+                    if(varName.length > 20){
+                        alert("El mensaje tiene mas de 20 caracteres")
+                    }
+                }
+            }else{
+                alert("No hay un mensaje")
+            }
+        }
+
+        /*  
+            var = variable de alcance global
+            let = variable solo disponible dentro de un bloque de codigo
+            const = constante, su valor no puede ser modificado, ademas al igual que let, solo esta disponible dentro de un bloque de codigo
+        */
+
+        /* Cuando esta funcion es llamada, hace una serie de calculos a dos variables numericas y las concadena a alertas,
+            luego, resta 1 al primer valor y suma 1 al segundo valor */
+        
+        var numero1 = 8;
+        var numero2 = 2;
+        function calculosAritmeticos(){
+            
+            alert("Suma = "              + (numero1 + numero2)); // la cantidad de espacios no importa mientras esten fuera de las ""
+            alert("Resta = "             + (numero1 - numero2));
+            alert("Multiplicacion = "    + (numero1 * numero2));
+            alert("Division = "          + (numero1 / numero2));
+            alert("Modulo = "            + (numero1 % numero2));
+            alert("Elevado = "           + (numero1 ** numero2));
+
+            numero1--
+            numero2++
+        }
+        /* Cuando esta funcion es llamada, se comprueba que el valor escrito sea correspondiente al esperado segun el valor asignado
+            y si esta condicion se cumple, lanza una alerta confirmandolo, de lo contrario, lanzara otra alerta diciendo que el valor no corresponde */
+        function ejemploIf(){
+            let password = "Usuario.123";
+            if (document.getElementById("IDInpuntContrasena").value == password){
+                alert("Valor corresponde");
+            }else{
+                alert("Valor no corresponde");
+            }
+        }
+        /* 
+            = es para asignar valor
+            == es para comparar valor
+            === es para comprar valor y tipo de dato
+
+            1 == '1' -> verdadero
+            1 === '1' -> falso
+            1 === 1 -> verdadero
+            '1' === '1' -> verdadero
+        */
+
+        /* Las funciones pueden ser llamadas por otras funciones, y estas pueden entregar valores */
+        function funcionEjemplo1(){
+            var dato = document.getElementById("elemento3").value;
+            funcionEjemplo2(dato);
+        }
+        /* El valor recibido se guardara dentro de los parentesis si estos tienen alguna variable */
+        function funcionEjemplo2(palabra){
+            alert("La palabra es "+ palabra)
+        }
+
+        /* Se puede enviar mensajes a la consola del navegador, esta puede traer valores guardados en variables */
+        console.log("hola script en consola")
+        console.log(numero1);
+
+        /* Una variable puede cambiar de tipo */
+        var j = 0;
+        var i = 10;
+        var k = 0;
+        console.log(j);
+
+        j = j+i;
+        console.log(j);
+
+        j = "esto es un string"
+        console.log(j);
+
+        j = '1'
+        i = '2'
+        k = j+i // No se pueden sumar matematicamente strings, en su lugar, esto hara que los valores se concadenen, el resultado sera '12'
+        console.log(k);
+        console.log(typeof(k));
+
+        /* Con parseInt se puede cambiar el tipo de dato de string a numero, una vez hecho se puede sumar como corresponde */
+        j = parseInt(j)
+        i = parseInt(i)
+
+        k = j+i
+        console.log(k)
+        console.log(typeof(k))
+
+        /* Una funcion no se ejecuta hasta que sea llamada, pero se pueden llamar funciones durante el startup */
+        autoIniciada();
+
+        function autoIniciada(){
+            console.log("funcion autoiniciada")
+        }
+
+        /* Se puede enviar valores a una funcion, hacer algo con ese valor, y devolver el valor modificado con return. Este valor se guarda en una variable
+            que es, a la vez, la que ejecuta la funcion en primer lugar */
+        let demifuncion = retorno(10);
+        console.log(demifuncion);
+
+        function retorno(numero){
+            let suma = numero;
+            suma = numero + 1;
+
+            return(suma)
+        }
+        
+
+    </script>
+</head>
+<body>
+    <section>
+        <form>
+            <input type="text" id="elemento1" value="Nombre actual" required />
+            <input type="button" value="Clickeame" onclick="pressButton()"><br><br>
+            <input type="button" value="Calculos artimeticos" onclick="calculosAritmeticos()"><br><br>
+            <input type="text" id="IDInpuntContrasena" value="Contraseña" required />
+            <input type="button" value="Password" onclick="ejemploIf()"><br><br>
+            <input type="text" id="elemento3" value="Datos" required />
+            <input type="button" value="Funcion Ejemplos" onclick="funcionEjemplo1()"><br><br>
+        </form>
+    </section>
+
+    <script>
+        /* Este si se ejecuta porque para este punto, los elementos ya existen */
+//        alert(document.getElementById("elemento1").value);
+
+        /* Javascript puede cambiar valores de los elementos */
+//        document.getElementById("elemento1").value = "coso";
+
+        /* Puede cojer valores de elementos y asignarlos a una variable */
+//        var segundoelemento = document.getElementById("elemento2").value;
+
+        /* Al igual que otros scripts, el elemento debe existir para enviar la informacion */
+//        console.log(document.getElementById("elemento1").value);
+
+    </script>
+
+</body>
+</html>
