@@ -1,0 +1,184 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- para evitar descargar los recursos de bootstrap, se pueden importar -->
+<!--
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+-->    
+    <!-- para enlazar un archivo css, se usa <link rel="stylesheet" href="...">-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+    <!-- para enlazar un archivo de javascript se usa <script src="..."> -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <title>Practica Bootstrap</title>
+
+</head>
+<body>
+<!-- navbar adaptable segun tamaños de la pantalla -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Navbar</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Link</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Dropdown
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" href="#">Action</a></li>
+              <li><a class="dropdown-item" href="#">Another action</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="#">Something else here</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled">Disabled</a>
+          </li>
+        </ul>
+        <form class="d-flex">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+      </div>
+    </div>
+  </nav>
+<!-- grillas y col -->
+      <div class="container">
+        <!-- cada row tiene 12 grillas disponibles, los elementos pueden ocupar cualquier cantidad de grillas entre 1 y 12,
+             pero si la cantidad de grillas utilizadas se excede de las 12, se ordenaran por debajo de las primeras.
+            
+            la cantidad de grillas utilizadas por un elemento se define con class="col-x-#"" donde x es el tamaño de la pantalla entre 
+            xs, sm, md, lg, xl y xxl, y # es la cantidad de grillas utilizadas-->
+        <div class="row">
+          <div class="col-md-3">
+            <div class="form-group">
+                <label for="Nombre">Nombre:</label><input type="text" class="form-control" name="Nombre" id="idNombre" required>
+              </div>
+          </div>
+            <div class="col-md-3">
+              <div class="form-group">
+                  <label for="Apellido">Apellido:</label><input type="text" class="form-control" name="Apellido" id="idApellido" required>
+              </div>
+            </div>
+        </div>
+         <div class="row">
+            <div class="col-md-3">
+              <div class="form-group">
+                  <label for="Edad">Edad:</label><input type="text" class="form-control" name="Edad" id="idEdad" required>
+                </div>
+            </div>
+            <div class="col-md-3">
+              <div class="form-group">
+                <label for="EstadoCivil">Estado Civil:</label>
+                <select name="optEstadoCivil" id="idEstadoCivil" class="form-control">
+                    <option value="1">Soltero</option>
+                    <option value="2">Casado</option>
+                    <option value="3">Separado</option>
+                    <option value="4">Viudo</option>
+                </select>
+              </div>
+           </div>
+          </div>
+          <div class="row">
+            <div class="col-3">
+              <input class="form-control" type="submit" name="Enviar" id="idEnviar">
+            </div>
+          </div>
+      </div>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <div class="row">
+      <div class="col-1"><div style="border: 1px solid black;">1</div></div>
+      <div class="col-1"><div style="border: 1px solid black;">2</div></div>
+      <div class="col-1"><div style="border: 1px solid black;">3</div></div>
+      <div class="col-1"><div style="border: 1px solid black;">4</div></div>
+      <div class="col-1"><div style="border: 1px solid black;">5</div></div>
+      <div class="col-1"><div style="border: 1px solid black;">6</div></div>
+      <div class="col-1"><div style="border: 1px solid black;">7</div></div>
+      <div class="col-1"><div style="border: 1px solid black;">8</div></div>
+      <div class="col-1"><div style="border: 1px solid black;">9</div></div>
+      <div class="col-1"><div style="border: 1px solid black;">10</div></div>
+      <div class="col-1"><div style="border: 1px solid black;">11</div></div>
+      <div class="col-1"><div style="border: 1px solid black;">12</div></div>
+      </div>
+      <br>
+<!-- tabla -->
+    <div class="container">
+        <!-- el diseño de la tabla viene por defecto, sin embargo existen algunos cambios de diseño que pueden aplicarse como "table dark"
+             o "table-bordered", y varios de estos pueden combinarse tambien, de igual modo, en las etiquetas hijas se pueden sobreescribir
+             los diseños impuestos por sus padres -->
+        <table class="table table-primary table-bordered table-striped table-hover">
+            <thead class="table-dark table borderless">
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">First</th>
+                <th scope="col">Last</th>
+                <th scope="col">Handle</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">1</th>
+                <td>Mark</td>
+                <td>Otto</td>
+                <td>@mdo</td>
+              </tr>
+              <tr>
+                <th scope="row">2</th>
+                <td>Jacob</td>
+                <td>Thornton</td>
+                <td>@fat</td>
+              </tr>
+              <tr>
+                <th scope="row">3</th>
+                <td colspan="2">Larry the Bird</td>
+                <td>@twitter</td>
+              </tr>
+            </tbody>
+          </table>
+    </div>
+    <br>
+<!-- jumbotron -->
+    <div class="container">
+        <div class="jumbotron">
+            <h1 class="display-4 ">Titulo h1 con display-4</h1>
+            <p class="lead">Parrafo con clase lead</p>
+            <hr class="my-4">
+            <p>Parrafo sin modificaciones</p>
+            <!-- un <a> no es un boton, pero a traves de modificaciones, se le puede dar un comportamiento acorde a uno,
+                del mismo modo se puede modificar un <button> de modo que parezca un link <a>-->
+            <a class="btn btn-primary btn-lg" href="#" role="button">Esto no es un button</a>
+            <button type="button" class="btn btn-lg btn-link">Esto si es un button</button>
+        </div>
+    </div>
+    br
+<!-- control de imagenes -->
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-sm-4 col-md-3 col-xl-1 text-center">
+                <img src="bootstrap-5.1.3-dist/assets/img/paisaje.jpg" alt="Imagen de paisaje" class="img-fluid">
+            </div>
+            <div class="col-12 col-sm-4 col-md-3 col-xl-1 text-center">
+                <img src="bootstrap-5.1.3-dist/assets/img/paisaje.jpg" alt="Imagen de paisaje" class="img-thumbnail">
+            </div>
+            <div class="col-12 col-sm-4 col-md-6 col-xl-1 text-center">
+                <img src="bootstrap-5.1.3-dist/assets/img/paisaje.jpg" alt="Imagen de paisaje" class="img-fluid">
+            </div>
+        </div>
+    </div>
+
+    
+    
+</body>
+</html>
