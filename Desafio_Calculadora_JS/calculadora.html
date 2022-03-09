@@ -1,0 +1,230 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+    <!-- implementa bootstrap because why not -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+    <style>
+        /* override para tamaño consistente de botones */
+        .size-boton{
+            width: 50px;
+            height: 50px;
+            border: 1px;
+            border-style: solid;
+        }
+        body{
+            background-color: #8BC6EC;
+            background-image: linear-gradient(135deg, #8BC6EC 0%, #9599E2 100%);
+        }
+    </style>
+    <script>
+        // setea valores predeterminados
+        var numeroUno = 0.0;
+        var numeroDos = 0.0;
+        var calculoActual = 0.0;
+        var comaBloqueada = false;
+        var menosBloqueado = false;
+        var operadorActual = 'E';
+        var valorFinal = '0';
+    </script>
+
+</head>
+<body>
+<!-- calculadora proper -->
+    <div class="container-fluid px-5 py-5">
+        <div class="row">
+            <div class="card alert-secondary mx-auto" style="max-width: 18rem;">
+                <h5 class="card-header">Calculadora</h5>
+                <div class="card-body">
+                    <input type="text" class="form-control" id="idBarraCalculo" value="0" disabled><br>
+                    <input type="button" value="E" id="btn-operacionActual" class="btn btn-secondary size-boton disabled"></button><br><br>
+                    <input type="button" onclick="calculo('potencia')" value="xʸ" class="btn btn-secondary size-boton"></button>
+                    <input type="button" onclick="raiz()" value="sqr²" class="btn btn-secondary size-boton"></button><br>
+                    <input type="button" onclick="calculo('%')" value="%" class="btn btn-secondary size-boton"></button>
+                    <input type="button" onclick="botonPresionado('CE')" value="CE" class="btn btn-secondary size-boton"></button>
+                    <input type="button" onclick="botonPresionado('C')" value="C" class="btn btn-secondary size-boton"></button>
+                    <input type="button" onclick="botonPresionado('<=')" value="<=" class="btn btn-secondary size-boton"></button><br>
+                    <input type="button" onclick="botonPresionado('7')" value="7" class="btn btn-secondary size-boton"></button>
+                    <input type="button" onclick="botonPresionado('8')" value="8" class="btn btn-secondary size-boton"></button>
+                    <input type="button" onclick="botonPresionado('9')" value="9" class="btn btn-secondary size-boton"></button>
+                    <input type="button" onclick="calculo('*')" value="*" class="btn btn-secondary size-boton"></button><br>
+                    <input type="button" onclick="botonPresionado('4')" value="4" class="btn btn-secondary size-boton"></button>
+                    <input type="button" onclick="botonPresionado('5')" value="5" class="btn btn-secondary size-boton"></button>
+                    <input type="button" onclick="botonPresionado('6')" value="6" class="btn btn-secondary size-boton"></button>
+                    <!-- el boton de '-' tiene dos funciones, una de escritura y otra de calculo -->
+                    <input type="button" onclick="calculo('-'), botonPresionado('-')" value="-" class="btn btn-secondary size-boton"></button><br>
+                    <input type="button" onclick="botonPresionado('1')" value="1" class="btn btn-secondary size-boton"></button>
+                    <input type="button" onclick="botonPresionado('2')" value="2" class="btn btn-secondary size-boton"></button>
+                    <input type="button" onclick="botonPresionado('3')" value="3" class="btn btn-secondary size-boton"></button>
+                    <input type="button" onclick="calculo('+')" value="+" class="btn btn-secondary size-boton"></button><br>
+                    <input type="button" onclick="calculo('/')" value="/" class="btn btn-secondary size-boton"></button>
+                    <input type="button" onclick="botonPresionado('0')" value="0" class="btn btn-secondary size-boton"></button>
+                    <input type="button" onclick="botonPresionado(',')" value="," class="btn btn-secondary size-boton"></button>
+                    <input type="button" onclick="calculo('=')" value="=" class="btn btn-primary size-boton"></button><br>
+                </div>
+            </div>         
+        </div>
+    </div>
+</body>
+<!-- calculos javascript -->
+<script>
+   function botonPresionado(boton){
+        
+    // al presionar un boton cambia el valor a nada, despues procesa el boton presionado 
+        if(document.getElementById("idBarraCalculo").value == '0'){
+                document.getElementById("idBarraCalculo").value = '';
+    }
+
+    /* numeros (mas la coma y el menos) */
+        if(boton == '0'){
+            document.getElementById("idBarraCalculo").value = document.getElementById("idBarraCalculo").value + "0";
+        }
+        if(boton == '7'){
+            document.getElementById("idBarraCalculo").value = document.getElementById("idBarraCalculo").value + "7";
+        }
+        if(boton == '8'){
+            document.getElementById("idBarraCalculo").value = document.getElementById("idBarraCalculo").value + "8";
+        }
+        if(boton == '9'){
+            document.getElementById("idBarraCalculo").value = document.getElementById("idBarraCalculo").value + "9";
+        }
+        if(boton == '4'){
+            document.getElementById("idBarraCalculo").value = document.getElementById("idBarraCalculo").value + "4";
+        }
+        if(boton == '5'){
+            document.getElementById("idBarraCalculo").value = document.getElementById("idBarraCalculo").value + "5";
+        }
+        if(boton == '6'){
+            document.getElementById("idBarraCalculo").value = document.getElementById("idBarraCalculo").value + "6";
+        }
+        if(boton == '1'){
+            document.getElementById("idBarraCalculo").value = document.getElementById("idBarraCalculo").value + "1";
+        }
+        if(boton == '2'){
+            document.getElementById("idBarraCalculo").value = document.getElementById("idBarraCalculo").value + "2";
+        }
+        if(boton == '3'){
+            document.getElementById("idBarraCalculo").value = document.getElementById("idBarraCalculo").value + "3";
+        }
+        if(boton == ',' && document.getElementById("idBarraCalculo").value != 0 && comaBloqueada == false){
+            document.getElementById("idBarraCalculo").value = document.getElementById("idBarraCalculo").value + ".";
+            comaBloqueada = true;
+        }
+        if(boton == '-' && document.getElementById("idBarraCalculo").value == 0 && menosBloqueado == false){
+            document.getElementById("idBarraCalculo").value = "-";
+        }
+        menosBloqueado = true;
+
+
+    /* borradores */
+        //CE y C hacen lo mismo de momento, el 99% ni nota la diferencia de todos modos
+        if(boton == 'CE'){
+            document.getElementById("idBarraCalculo").value = '';
+            limpiar();
+        }
+        if(boton == 'C'){
+            document.getElementById("idBarraCalculo").value = '';
+            limpiar();
+        }
+        //en este caso .slice quitara el ultimo caracter puesto en la barra de calculo
+        if(boton == '<='){ 
+            document.getElementById("idBarraCalculo").value = document.getElementById("idBarraCalculo").value.slice(0, -1);
+        }   
+    
+
+    calculoActual = parseInt(document.getElementById("idBarraCalculo").value);
+//debug
+    calculoActual = document.getElementById("idBarraCalculo").value;
+    document.getElementById("idBarraCalculo").value = calculoActual;
+
+
+// si el campo queda vacio despues de presionar un boton, setea el valor a 0
+    if(document.getElementById("idBarraCalculo").value == ''){
+            document.getElementById("idBarraCalculo").value = '0'
+     }
+    }    
+
+    function calculo(calc){
+// solo se activaran si numeroUno, el primer valor a calcular, es 0, y si la barra de calculo tiene algun valor distinto que 0 y que '-'
+        if(numeroUno == 0.0 && document.getElementById("idBarraCalculo").value != 0 && document.getElementById("idBarraCalculo").value != '-'){
+            
+            // se setea el tipo de operacion a realizar, mostrando su valor en el boton desactivado debajo de la barra de calculo
+            if(calc == '*'){
+                document.getElementById("btn-operacionActual").value = '*';
+            }
+            if(calc == '-' && menosBloqueado == true){
+                document.getElementById("btn-operacionActual").value = '-';
+                }
+            if(calc == '+'){
+                document.getElementById("btn-operacionActual").value = '+';
+                }
+            if(calc == '/'){
+                document.getElementById("btn-operacionActual").value = '/';
+                }
+            if(calc == '%'){
+                document.getElementById("btn-operacionActual").value = '%';
+                }    
+            if(calc == 'potencia'){
+                document.getElementById("btn-operacionActual").value = 'x^y';
+                }        
+                
+            // una vez seteado el tipo de calculo, la barra de calculo vuelve a su valor inicial, se desbloquea el uso de la coma y se asigna un valor a numeroUno
+                numeroUno = parseFloat(document.getElementById("idBarraCalculo").value);
+                document.getElementById("idBarraCalculo").value = 0;
+                comaBloqueada = false;
+
+            // ahora que numeroUno tiene valor, ya no cumple los requisitos para lo de arriba, por lo tanto prosigue con lo siguiente
+            }else if(numeroDos == 0.0){
+                // el boton de '=' es la unica instruccion que tendra funcion aqui, y dependiendo del tipo de calculo definido antes, procesara los numeros de acorde
+                if(calc == '='){
+                    numeroDos = parseFloat(document.getElementById("idBarraCalculo").value);
+                     /* calculos proper */
+                    if(document.getElementById("btn-operacionActual").value == '*'){
+                        valorFinal = (numeroUno * numeroDos);
+                    }else
+                    if(document.getElementById("btn-operacionActual").value == '/'){
+                        valorFinal = (numeroUno / numeroDos);
+                    }else
+                    if(document.getElementById("btn-operacionActual").value == '+'){
+                        valorFinal = (numeroUno + numeroDos);
+                    }else
+                    if(document.getElementById("btn-operacionActual").value == '-'){
+                        valorFinal = (numeroUno - numeroDos);
+                    }else
+                    if(document.getElementById("btn-operacionActual").value == '%'){     
+                        valorFinal = ((numeroUno / 100) * numeroDos);
+                    }else
+                    if(document.getElementById("btn-operacionActual").value == 'x^y'){     
+                        valorFinal = Math.pow(numeroUno, numeroDos);
+                    }
+
+                    // al finalizar, setea el valor final en la barra de calculo y luego llama la funcion de limpieza para que las variables queden libres de usarse nuevamente
+                    document.getElementById("idBarraCalculo").value = valorFinal;
+                    limpiar();
+                }  
+            }
+    }
+
+// esta funcion limpia las variables para permitir el uso continuo de la calculadora.
+    function limpiar(){
+        numeroUno = 0.0;
+        numeroDos = 0.0;
+        valorFinal = 0.0;
+        document.getElementById("btn-operacionActual").value = 'E';
+        menosBloqueado = false;
+        comaBloqueada = false;
+    }
+    
+// la raiz solo necesita un termino, por lo que no encaja con las demas funciones
+    function raiz(){
+        valorFinal = Math.sqrt(document.getElementById("idBarraCalculo").value)
+        document.getElementById("idBarraCalculo").value = valorFinal;
+    }
+
+</script>
+
+</html>
