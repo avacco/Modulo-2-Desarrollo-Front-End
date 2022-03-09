@@ -1,0 +1,54 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practica CSS</title>
+    <!--se puede reservar el espacio style para definir css-->
+    <style>
+        body{ /* se puede aplicar estilos a tags enteros, afectara a todos los elementos dentro del tag */
+            background-color: darkgray;
+        }
+
+        .titulo{ /* una class se define por el . antes del titulo */
+            color: blue;
+            color: cyan; /* si hay instrucciones contradictorias, la ultima tendra precedencia */ 
+        }
+        #titulo4{ /* se puede aplicar estilos a ids con # antes del titulo, estos solo deben utilizarse una vez*/
+            color: rebeccapurple;
+        }
+        .caja{
+            border: 5px dashed; 
+            padding: 20px 50px 20px 50px; /* en sentido de agujas del reloj, arriba, derecha, abajo, izquierda */
+            margin: 20px; /* si solo hay uno, lo toma para todos los sentidos */
+            background-color: salmon;
+            font-size: 61px;
+            font-family: fantasy;
+            text-align: center;
+            height: 300px;
+            width: 500px;
+        }
+
+        @media (max-width: 500px) { /* con @media se puede aplicar estilos segun dimensiones maximas */
+            .mediascreen{
+                color: springgreen;
+            }    
+            
+        }
+        
+    </style>
+    <!--se puede importar stylesheet css externo-->
+    <link rel="stylesheet" href="assets/styles/css.css">
+    
+</head>
+<body><!-- puede entrar en style dentro de etiquetas -->
+    <h1 style="color: red">Titulo H1 con style incrustado</h1> <!-- funciona con nombres en ingles, hexadecimal (#000000) y RGB (rgb(0,0,0))-->
+    <h2 class="titulo">Titulo H2 con class dentro de html</h2>
+    <h3 class="titulo2">Titulo H3 con stylesheet importado</h3>
+    <h4 id="titulo4">Titulo H4 con ID unico</h4>
+    <h5 class="caja">Titulo H5 con varias modificaciones</h5>
+    <p class="mediascreen">Parrafo P que cambia segun dimensiones (menos de 500px, cambia a verde, sino se queda negro)</p>
+</body>
+</html>
+
+<!-- el orden de prioridad de estilos es: incrustados dentro de la misma etiqueta > incrustados en style de head > importados de stylesheet externo-->

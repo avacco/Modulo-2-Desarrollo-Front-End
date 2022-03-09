@@ -1,0 +1,93 @@
+/* importa la api de google fonts para roboto */
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Syne+Tactile&display=swap');
+
+body{
+    font-family: 'Roboto', 'sans-serif'; /* aplica la font roboto a todos los elementos de body */
+}
+
+/* se puede agrupar varias etiquetas para hacerles una modificacion en comun */
+h1, h2, h3, h4, h5, h6{
+    text-align: center;
+}
+
+/* Header */
+header{
+/*  background: url("../img/paisaje.jpg.jpg"); /* con "../" puedes volver una carpeta atras, contando desde la raiz de este archivo*/
+    height: 300px; /* ajusta el alto de esta etiqueta */
+    width: auto; /* ajusta el ancho de esta etiqueta automaticamente */
+}
+
+h1{
+    font-size: 40px; /* modifica el tamaño de los caracteres*/
+    font-weight: 400; /* modifica el grosor de los caracteres*/   
+    text-align: center; /* define la alineacion del texto, este deja el texto centrado */
+}
+
+h3{
+    text-align: right;
+    text-decoration: none;
+}
+
+/* se puede escribir clases anidadas, aqui afectara las etiquetas cuya clase padre sea "navegador" y cuya clase personal sea "lista". esto afecta a etiquetas hijas tambien */
+.navegador .lista{
+    list-style:decimal;
+}
+
+/* se puede especificar dentro de estas clases anidadas, que etiquetas especificas seran modificadas, en este caso, solo las etiquetas <li> cuyos padres sean de la clase .lista y .navegador, y cuya clase personal sea "seleccionada", seran modificadas */
+.navegador .lista li.seleccionada{
+    list-style:lower-greek;
+    font-size: 25px;
+    font-weight: bold;
+}                                                                                                               
+
+
+header div.limpiar{
+    clear: both;
+}
+
+.color-primario{
+    color: blue;
+}
+
+.color-secundario{
+    color: lightblue;
+}
+
+/* Cuerpo */
+
+.contenedor{
+    background-color: lightgray;
+    min-width: 100%;
+    min-height: 300px;
+    height: 100%;
+}
+
+/* las buenas practicas dicen que todos los elementos deben ir siempre hacia el mismo lado, y en especifico, la izquierda*/
+.contenedor div.izquierda{
+    float: left;
+    width: 30%;
+    margin: 0px 20px
+}
+.contenedor div.centro{
+    float: left;
+    width: 30%;
+    margin: 0px 20px
+}
+.contenedor div.derecha{
+    float: left;
+    width: 30%;
+    margin: 0px 20px
+}
+
+.negrita{
+    font-weight: bold;
+}
+
+.contenedor p{
+    text-align: justify;
+}
+
+.fontsize-default{
+    font-size: 13px;
+
+}
